@@ -35,3 +35,27 @@ public:
         }
     }
 };
+
+// this post is better than mine
+class Solution {
+public:
+    bool detectCapitalUse(string word) {
+       // AAA
+        auto isUpper =[](const string &word) {
+          for (auto x : word) {
+              if (x >= 'a')
+                  return false;
+          }
+          return true;
+        };
+        // Aaa or aaa
+        auto isLower = [](const string &word) {
+          for (int i = 1; i < word.size(); ++i) {
+              if (word[i] < 'a')
+                  return false;
+          }
+          return true;
+        };
+        return isUpper(word) || isLower(word);
+    };
+};
